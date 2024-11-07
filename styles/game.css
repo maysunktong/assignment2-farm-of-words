@@ -1,0 +1,58 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100vh;
+  font-family: "Silkscreen", sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url("../assets/images/background.jpeg");
+  object-fit: cover;
+  display: grid;
+  grid-template-rows: 9fr 1fr;
+  min-height: 100vh;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.header__title {
+  border-radius: 2rem;
+  padding: 1rem 2rem;
+  background-color: rgb(252, 232, 202);
+  border: 6px black dashed;
+  font-size: xx-large;
+  color: black;
+}
+
+#startButton {
+  font-family: "Silkscreen", sans-serif;
+  background-color: transparent;
+  border: double brown 8px;
+  text-transform: uppercase;
+  font-size: 2rem;
+  font-weight: 600;
+  background-color: darkorange;
+  color: black;
+  cursor: url("../assets/icons/carrot.png"), auto;
+}
+
+#startButton:hover {
+  border: double green 8px;
+  background-color: yellow;
+  color: black;
+  transform: scale(1.2);
+}
+
+.footer {
+  text-align: end;
+  padding: 0 24px;
+}
