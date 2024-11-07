@@ -22,6 +22,7 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  padding: 12px;
 }
 
 .header__title {
@@ -38,7 +39,7 @@ body {
   background-color: transparent;
   border: double brown 8px;
   text-transform: uppercase;
-  font-size: 2rem;
+  font-size: xx-large;
   font-weight: 600;
   background-color: darkorange;
   color: black;
@@ -55,4 +56,22 @@ body {
 .footer {
   text-align: end;
   padding: 0 24px;
+}
+
+mark {
+  background-color: bisque;
+  opacity: 0.8;
+}
+
+/* media queries for mobile */
+@media (max-width: 768px) {
+  .header__title {
+    font-size: large;
+  }
+  #startButton {
+    font-size: x-large;
+  }
+  .footer {
+    text-align: center;
+  }
 }
