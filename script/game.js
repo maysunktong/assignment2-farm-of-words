@@ -12,21 +12,20 @@ const startGame = () => {
     alert("Your name should only contain letters. Please try again.");
     return;
   }
+  if (promptName === null || promptName.trim() === "") {
+    alert("You cancelled the process. Exiting game.");
+    return;
+  }
   let promptMayor =
     prompt(`🧙🏻‍♂️[Mayor Thomas]: Hi ${promptName}! Your grandfather left you his little farm. Also, he asked me to give this letter to you.
      💌
     [0] Open letter
     [1] Change your name`);
 
-  if (
-    promptName === null ||
-    (promptName.trim() === "" && promptMayor === null) ||
-    promptMayor.trim() === ""
-  ) {
+  if (promptMayor === null || promptMayor.trim() === "") {
     alert("You cancelled the process. Exiting game.");
     return;
   }
-
   const PROMPT_LETTER = prompt(`
     -------------------------------------------
      My dear ${promptName},                  
@@ -43,7 +42,7 @@ const startGame = () => {
     -------------------------------------------
    [0] Start game
    [1] Change your name`);
-  if (promptLetter === null || promptLetter.trim() === "") {
+  if (PROMPT_LETTER === null || PROMPT_LETTER.trim() === "") {
     return;
   }
 };
