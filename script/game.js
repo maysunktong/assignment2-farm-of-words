@@ -1,26 +1,32 @@
+const TOTAL_ATTEMPTS = 5;
+const WORD_ARRAY_FRUITS = ["mango", "onion", "peach", "olive", "apple"];
+const WORD_ARRAY_ANIMALS = ["geese", "horse", "sheep", "donkey"];
+const WORD_ARRAY_PRODUCTS = ["wheat", "honey", "cheese", "juice", "steak"];
+const LETTER_REGEX = /^[a-z]+$/i;
+
 const startGame = () => {
   let promptName = prompt(
     `🧙🏻‍♂️[Mayor Thomas]: Hi. My name is Thomas Morot, Mayor of Grönville. What is your name?`
   );
-  if (promptName === null || promptName.trim() === "") {
+  if (!LETTER_REGEX.test(promptName)) {
+    alert("Your name should only contain letters. Please try again.");
     return;
   }
-  // RegEx test method to check the name is letter-based, not number
-  const LETTER_REGEX = /^[a-z]+$/i;
-  if (LETTER_REGEX.test(promptName)) {
-    alert("good")
-  } else {
-    alert("type a valid name")
-  }
-
   let promptMayor =
     prompt(`🧙🏻‍♂️[Mayor Thomas]: Hi ${promptName}! Your grandfather left you his little farm. Also, he asked me to give this letter to you.
-       💌
-      [0] Open letter
-      [1] Change your name`);
-  if (promptMayor === null || promptMayor.trim() === "") {
+     💌
+    [0] Open letter
+    [1] Change your name`);
+
+  if (
+    promptName === null ||
+    (promptName.trim() === "" && promptMayor === null) ||
+    promptMayor.trim() === ""
+  ) {
+    alert("You cancelled the process. Exiting game.");
     return;
   }
+
   const PROMPT_LETTER = prompt(`
     -------------------------------------------
      My dear ${promptName},                  
@@ -40,5 +46,5 @@ const startGame = () => {
   if (promptLetter === null || promptLetter.trim() === "") {
     return;
   }
-} 
+};
 document.getElementById("startButton").addEventListener("click", startGame);
