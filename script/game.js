@@ -1,7 +1,8 @@
 const TOTAL_ATTEMPTS = 5;
-const WORD_ARRAY_FRUITS = ["mango", "onion", "peach", "olive", "apple"];
-const WORD_ARRAY_ANIMALS = ["geese", "horse", "sheep", "donkey"];
-const WORD_ARRAY_PRODUCTS = ["wheat", "honey", "cheese", "juice", "steak"];
+const MAX_WORD_LENGTH = 5;
+const WORD_ARRAY_FRUITS = ["mango", "onion", "lemon", "olive", "apple", 'peach'];
+const WORD_ARRAY_ANIMALS = ["goose", "horse", "sheep", "snake", "mouse"];
+const WORD_ARRAY_PRODUCTS = ["wheat", "honey", "bread", "juice", "steak"];
 const LETTER_REGEX = /^[a-z]+$/i;
 
 const startGame = () => {
@@ -26,7 +27,20 @@ const startGame = () => {
     alert("You cancelled the process. Exiting game.");
     return;
   }
-  const PROMPT_LETTER = prompt(`
+
+  switch (promptMayor) {
+    case "0":
+      PROMPT_LETTER;
+      break;
+    case "1":
+      startGame();
+      break;
+    default:
+      alert("Invalid choice. Please try again.");
+      promptMayor();
+  }
+
+  let promptLetter = prompt(`
     -------------------------------------------
      My dear ${promptName},                  
                                              
@@ -42,8 +56,14 @@ const startGame = () => {
     -------------------------------------------
    [0] Start game
    [1] Change your name`);
-  if (PROMPT_LETTER === null || PROMPT_LETTER.trim() === "") {
+  if (promptLetter === null || promptLetter.trim() === "") {
     return;
   }
+
+  let promptCategory = prompt(
+    `
+    
+    `
+  );
 };
 document.getElementById("startButton").addEventListener("click", startGame);
