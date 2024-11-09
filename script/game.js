@@ -1,4 +1,4 @@
-const TOTAL_ATTEMPTS = 5;
+
 const MAX_WORD_LENGTH = 5;
 const WORD_LIST_FRUITS = ["mango", "onion", "lemon", "olive", "apple", "peach"];
 const WORD_LIST_ANIMALS = ["goose", "horse", "sheep", "snake", "mouse"];
@@ -88,6 +88,46 @@ const startGame = () => {
   if (promptCategory === null || promptCategory.trim() === "") {
     alert("You cancelled the process. Exiting game.");
     return;
+  }
+
+  let selectedCategory;
+  switch (promptCategory) {
+    case "1":
+      selectedCategory = WORD_LIST_FRUITS;
+      break;
+    case "2":
+      selectedCategory = WORD_LIST_ANIMALS;
+      break;
+    case "3":
+      selectedCategory = WORD_LIST_PRODUCTS;
+      break;
+    default:
+      alert("Invalid choice. Please try again.");
+      break;
+  }
+
+  const randomWord =
+    selectedCategory[Math.floor(Math.random() * selectedCategory.length)];
+  let isGuessedCorrectly = false;
+  let maxAttempts = 5;
+  let attempts = [];
+
+  const checkGuess = (guess) => {
+    let feedback = "";
+    for (let i = 0; i < MAX_WORD_LENGTH; i++) {
+      if (guess[i] === randomWord[i]) {
+        feedback += "✅";
+      } else if (randomWord[i].includes(guess[i])) {
+        feedback += "🐥";
+      } else {
+        feedback += "⬛️";
+      }
+    }
+    return feedback;
+  };
+
+  while (MAX_ATTEMPTS > 0 && !isGuessedCorrectly){
+    let promptUserGuess = prompt(`Guess the ${MAX_WORD_LENGTH}-letter word! You have ${maxAttempts} attempts left.`)
   }
 };
 document.getElementById("startButton").addEventListener("click", startGame);
