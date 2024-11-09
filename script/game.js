@@ -181,8 +181,8 @@ const startGame = () => {
       );
       isGuessedCorrectly = true;
     } else {
-      let attemptSummary = feedbackArray.join("");
-      alert(`Attempt Summary:${attemptSummary}`);
+      let attemptSummary = feedbackArray.join("\n");
+      alert(`Attempt Summary:\n${attemptSummary}`);
       if (leftAttempts === 0) {
         alert(
           `Game Over! The correct word was "${randomWord}". Better luck next time! 👴🏻`
