@@ -96,40 +96,43 @@ const startGame = () => {
   }
 
   // promptCategory starts
-  let promptCategory = prompt(
-    `🚩:::Harvest Hints Arena:::🚩
+  let selectedCategory;
+  while (true) { 
+    let promptCategory = prompt(
+      `🚩:::Harvest Hints Arena:::🚩
 
     Please choose a category.
     [1] Fruits & Vegetables 🥕🍌
     [2] Farm Animals 🐷🦆
     [3] Farm Products 🚜🌾🥛
     `
-  );
+    );
 
-  if (promptCategory === null) {
-    alert("You cancelled the process. Exiting game...");
-    return;
-  }
+    if (promptCategory === null) {
+      alert("You cancelled the process. Exiting game...");
+      return;
+    }
 
-  if (promptCategory.trim() === "") {
-    alert("No input. Try again!");
-    return startGame();
-  }
+    if (promptCategory.trim() === "") {
+      alert("No input. Try again!");
+      return startGame();
+    }
 
-  let selectedCategory;
-  switch (promptCategory) {
-    case "1":
-      selectedCategory = WORD_LIST_FRUITS;
-      break;
-    case "2":
-      selectedCategory = WORD_LIST_ANIMALS;
-      break;
-    case "3":
-      selectedCategory = WORD_LIST_PRODUCTS;
-      break;
-    default:
-      alert("You don't choose a valid category.");
-      startGame();
+    switch (promptCategory) {
+      case "1":
+        selectedCategory = WORD_LIST_FRUITS;
+        break;
+      case "2":
+        selectedCategory = WORD_LIST_ANIMALS;
+        break;
+      case "3":
+        selectedCategory = WORD_LIST_PRODUCTS;
+        break;
+      default:
+        alert("You don't choose a valid category.");
+        continue;
+    }
+    break;
   }
 
   const randomWord =
@@ -153,7 +156,6 @@ const startGame = () => {
     return feedback;
   };
 
- 
   while (leftAttempts > 0 && !isGuessedCorrectly) {
     let attemptSummary = feedbackArray.join("\n");
     // promptUserGuess starts
@@ -190,7 +192,7 @@ const startGame = () => {
     let feedbackResult = checkGuess(promptUserGuess);
     feedbackArray.push(
       `Your guess: ${promptUserGuess.toUpperCase()} - ${feedbackResult}`
-    );  
+    );
 
     if (promptUserGuess === randomWord) {
       alert(
