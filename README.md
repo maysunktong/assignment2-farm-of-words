@@ -14,3 +14,4 @@ Harvest Hints is handled by two main functions: `startGame()` and `playGame()`
 - User will guess a word based on the category chosen
 - Each guess is evaluated. Left attempt decreases.
 - Evaluate a game: win or lose
+- On evaluation modal (`confirm()`), user can choose to replay or exit game.
