@@ -5,7 +5,7 @@
 
 ## Game flow
 > Harvest Hints is handled by two main functions: `startGame()` and `playGame()`
-> `startGame()` - handle name input and game options leading to main gameplay or `playGame()`
+> <br> `startGame()` - handle name input and game options leading to main gameplay or `playGame()`
 1. Game initialization
 - User inputs name
 - User choose options [0] & [1] to go further to category prompt(`playGame()`) or change name (restart `startGame()`)
