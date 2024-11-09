@@ -8,11 +8,11 @@
 > <br> `startGame()` - handle name input and game options leading to main gameplay or `playGame()`
 1. Game initialization
 - User inputs name
-- User choose options [0] & [1] to go further to category prompt(`playGame()`) or change name (restart `startGame()`)
+- User chooses options [0] & [1] to go further to category prompt(`playGame()`) or change name (restart `startGame()`)
 2. Main Gameplay
-- User's max attempts is reset
-- User will choose a category in a prompt
-- User will guess a word based on the category chosen
+- User's max attempts is set/reset
+- User chooses a category in a prompt
+- User guesses a word based on the category chosen
 - Each guess is evaluated. Left attempt decreases.
 - Evaluate a game: win or lose
 - On game ending modal, user can choose to restart or exit game.
