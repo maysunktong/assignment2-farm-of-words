@@ -66,7 +66,7 @@ const startGame = () => {
     This farm is a gift to you, my beloved grandchild. 
      But before you earn the ownership of the place, I want to test your knowledge first through a word guessing game.         
     
-     You have 5 attempts to guess the correct word.
+     You have ${leftAttempts} attempts to guess the correct word.
      ✅ - right letter & right spot
      🐥 - right letter but wrong spot
      ⬛️ - wrong letter & wrong spot
