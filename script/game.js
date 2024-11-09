@@ -40,10 +40,8 @@ const startGame = () => {
 
   let promptLetter = prompt(`
     👴🏻[grandpa]: My dear ${promptName},                  
-                                             
-     This farm is a gift to you, my beloved grandchild. 
-     But before you earn the ownership of the place, I want to test your knowledge first through 
-     a word guessing game.         
+    This farm is a gift to you, my beloved grandchild. 
+     But before you earn the ownership of the place, I want to test your knowledge first through a word guessing game.         
     
      You have 5 attempts to guess the correct word.
      ✅ - right letter & right spot
@@ -55,7 +53,9 @@ const startGame = () => {
     -----------------------------------------------------
    [0] Start game
    [1] Change your name`);
+   
   if (promptLetter === null || promptLetter.trim() === "") {
+    alert("You cancelled the process. Exiting game.");
     return;
   }
 
@@ -70,7 +70,7 @@ const startGame = () => {
 
   let promptCategory = prompt(
     `
-    :::Harvest Hints Arena:::
+    🚩:::Harvest Hints Arena:::🚩
 
     Please choose a category.
     [1] Vegetables & Fruits 🥕🍌
@@ -79,6 +79,7 @@ const startGame = () => {
     `
   );
   if (promptCategory === null || promptCategory.trim() === "") {
+    alert("You cancelled the process. Exiting game.");
     return;
   }
 };
