@@ -12,9 +12,11 @@ const WORD_LIST_PRODUCTS = [
 ];
 const LETTER_REGEX = /^[a-z]+$/i;
 const MAX_WORD_LENGTH = 5;
-let leftAttempts = 6;
+let maxAttempts = 6;
 
 const playGame = () => {
+  // every start of the game, reset attempts
+  let leftAttempts = maxAttempts;
   // promptCategory starts
   let selectedCategory;
   while (true) {
@@ -119,10 +121,12 @@ const playGame = () => {
         `👏Congratulations👏 
       The correct word is ✨${randomWord}✨. 
       You get the farm! 👴🏻🌳
-      🥳🥳🥳🥳🥳`
+      🥳🥳🥳🥳🥳
+      
+      Do you want to play again?`
       );
       isGuessedCorrectly = true;
-      if (won) {
+      if (win) {
         playGame();
       } else {
         alert("Thank you for playing!");
@@ -131,7 +135,9 @@ const playGame = () => {
       let lose = confirm(
         `😭Game Over😭 
         The correct word was "${randomWord}". 
-        Better luck next time! 👴🏻`
+        Better luck next time! 👴🏻
+        
+        Do you want to play again?`
       );
       if (lose) {
         playGame();
@@ -194,7 +200,7 @@ const startGame = () => {
     This farm is a gift to you, my beloved grandchild. 
      But before you earn the ownership of the place, I want to test your knowledge first through a word guessing game.         
     
-     You have ${leftAttempts} attempts to guess the correct word.
+     You have ${maxAttempts} attempts to guess the correct word.
      ✅ - right letter & right spot
      🐥 - right letter but wrong spot
      ⬛️ - wrong letter & wrong spot
@@ -220,7 +226,7 @@ const startGame = () => {
     return startGame();
   } else if (promptLetter !== "0") {
     alert("Invalid choice. Please try again.");
-    return startGame();
+    return;
   }
   playGame();
 };
