@@ -133,6 +133,7 @@ const startGame = () => {
 
   const randomWord =
     selectedCategory[1][Math.floor(Math.random() * selectedCategory[1].length)];
+  console.log("Random word: ", randomWord);
   let isGuessedCorrectly = false;
   let feedbackArray = [];
 
@@ -192,7 +193,7 @@ const startGame = () => {
         `👏Congratulations👏 
         The correct word is ✨${randomWord}✨. 
         You get the farm! 👴🏻🌳
-        🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉`
+        🥳🥳🥳🥳🥳`
       );
       isGuessedCorrectly = true;
     } else if (leftAttempts === 0) {
