@@ -1,5 +1,5 @@
 const WORD_LIST_FRUITS = [
-  ["Vegetables & fruits"],
+  ["Fruits & Vegetables"],
   ["mango", "onion", "lemon", "olive", "apple", "peach"],
 ];
 const WORD_LIST_ANIMALS = [
@@ -126,14 +126,15 @@ const startGame = () => {
       break;
     default:
       alert("You don't choose a valid category.");
-      return startGame();
+      startGame();
   }
 
   const randomWord =
-    selectedCategory[1][Math.floor(Math.random() * selectedCategory.length)];
+    selectedCategory[1][Math.floor(Math.random() * selectedCategory[1].length)];
   let isGuessedCorrectly = false;
   let leftAttempts = 5;
   let feedbackArray = [];
+  const MAX_WORD_LENGTH = 5;
 
   const checkGuess = (guess) => {
     let feedback = "";
@@ -182,7 +183,7 @@ const startGame = () => {
     } else {
       let attemptSummary = feedbackArray.join("");
       alert(`Attempt Summary:${attemptSummary}`);
-      if ((leftAttempts = 0)) {
+      if (leftAttempts === 0) {
         alert(
           `Game Over! The correct word was "${randomWord}". Better luck next time! 👴🏻`
         );
