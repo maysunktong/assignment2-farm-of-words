@@ -10,15 +10,19 @@ const startGame = () => {
     `🧙🏻‍♂️[Mayor]: Hi. My name is Thomas Morot, Mayor of Grönville. What is your name?`
   );
 
-  if (promptName === null || promptName.trim() === "") {
-    alert("You cancelled the process. Exiting game.");
+  if (promptName === null) {
+    alert("You cancelled the process. Exiting game...");
     return;
+  }
+
+  if (promptName.trim() === "") {
+    alert("No input. Try again!");
+    return startGame();
   }
 
   if (!LETTER_REGEX.test(promptName)) {
     alert("Your name should only contain letters. Please try again.");
-    startGame();
-    return;
+    return startGame();
   }
 
   // promptMayor starts
@@ -29,18 +33,21 @@ const startGame = () => {
     [0] Read letter
     [1] Change your name`);
 
-  if (promptMayor === null || promptMayor.trim() === "") {
-    alert("You cancelled the process. Exiting game.");
+  if (promptMayor === null) {
+    alert("You cancelled the process. Exiting game...");
     return;
   }
 
+  if (promptMayor.trim() === "") {
+    alert("No input. Try again!");
+    return startGame();
+  }
+
   if (promptMayor === "1") {
-    startGame();
-    return;
+    return startGame();
   } else if (promptMayor !== "0") {
     alert("Invalid choice. Please try again.");
-    startGame();
-    return;
+    return startGame();
   }
 
   // promptLetter starts
@@ -60,18 +67,21 @@ const startGame = () => {
    [0] Start game
    [1] Change your name`);
 
-  if (promptLetter === null || promptLetter.trim() === "") {
-    alert("You cancelled the process. Exiting game.");
+  if (promptLetter === null) {
+    alert("You cancelled the process. Exiting game...");
     return;
   }
 
+  if (promptLetter.trim() === "") {
+    alert("No input. Try again!");
+    return startGame();
+  }
+
   if (promptLetter === "1") {
-    startGame();
-    return;
+    return startGame();
   } else if (promptLetter !== "0") {
     alert("Invalid choice. Please try again.");
-    promptCategory();
-    return;
+    return startGame();
   }
 
   // promptCategory starts
@@ -85,9 +95,14 @@ const startGame = () => {
     `
   );
 
-  if (promptCategory === null || promptCategory.trim() === "") {
-    alert("You cancelled the process. Exiting game.");
+  if (promptCategory === null) {
+    alert("You cancelled the process. Exiting game...");
     return;
+  }
+
+  if (promptCategory.trim() === "") {
+    alert("No input. Try again!");
+    return startGame();
   }
 
   let selectedCategory;
@@ -102,8 +117,8 @@ const startGame = () => {
       selectedCategory = WORD_LIST_PRODUCTS;
       break;
     default:
-      alert("Invalid choice. Please try again.");
-      break;
+      alert("You don't choose a valid category.");
+      return startGame();
   }
 
   const randomWord =
@@ -131,7 +146,7 @@ const startGame = () => {
       `Guess the ${MAX_WORD_LENGTH}-letter word! You have ${leftAttempts} attempts left.`
     ).toLowerCase();
     if (promptUserGuess === null || promptUserGuess.trim() === "") {
-      alert("You cancelled the process. Exiting game.");
+      alert("You cancelled the process. Exiting game...");
       return;
     }
     if (promptUserGuess.length != MAX_WORD_LENGTH) {
