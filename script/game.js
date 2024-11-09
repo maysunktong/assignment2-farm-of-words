@@ -181,7 +181,7 @@ const startGame = () => {
     }
 
     if (!LETTER_REGEX.test(promptUserGuess)) {
-      alert("Your guess should include only letters!");
+      alert("Your guess should only include letters!");
       continue;
     }
 
