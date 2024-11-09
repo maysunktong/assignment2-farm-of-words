@@ -166,15 +166,14 @@ const startGame = () => {
       return startGame();
     }
 
-    // Re-prompt promptUserGuess
     if (promptUserGuess.length != MAX_WORD_LENGTH) {
       alert(`Please enter a ${MAX_WORD_LENGTH}-letter word!`);
-      return;
+      continue;
     }
 
     if (!LETTER_REGEX.test(promptUserGuess)) {
       alert("Your guess should include only letters!");
-      return;
+      continue;
     }
 
     leftAttempts--;
