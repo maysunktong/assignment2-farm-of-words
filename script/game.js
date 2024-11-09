@@ -77,11 +77,12 @@ const startGame = () => {
    [0] Start game
    [1] Change your name`);
 
+  // handle Cancel button
   if (promptLetter === null) {
     alert("You cancelled the process. Exiting game...");
     return;
   }
-
+  // handle OK button
   if (promptLetter.trim() === "") {
     alert("No input. Try again!");
     return startGame();
@@ -134,9 +135,9 @@ const startGame = () => {
   const randomWord =
     selectedCategory[1][Math.floor(Math.random() * selectedCategory[1].length)];
   console.log("Random word: ", randomWord);
+
   let isGuessedCorrectly = false;
   let feedbackArray = [];
-
 
   const checkGuess = (guess) => {
     let feedback = "";
@@ -152,15 +153,22 @@ const startGame = () => {
     return feedback;
   };
 
+  let feedbackResult = checkGuess(promptUserGuess);
+  feedbackArray.push(
+    `Your guess: ${promptUserGuess.toUpperCase()} - ${feedbackResult}`
+  );
+
   while (leftAttempts > 0 && !isGuessedCorrectly) {
     let attemptSummary = feedbackArray.join("\n");
+    // promptUserGuess starts
     let promptUserGuess = prompt(
       `Category: ${selectedCategory[0]}
       Guess the ${MAX_WORD_LENGTH}-letter word. [${leftAttempts} attempts left].
       🐥🥦🥕🐮🥛🥩🌳
       Attempt Summary:
       ${attemptSummary}
-    `).toLowerCase();
+    `
+    ).toLowerCase();
     if (promptUserGuess === null) {
       alert("You cancelled the process. Exiting game...");
       return;
@@ -183,11 +191,6 @@ const startGame = () => {
 
     leftAttempts--;
 
-    let feedbackResult = checkGuess(promptUserGuess);
-    feedbackArray.push(
-      `Your guess: ${promptUserGuess.toUpperCase()} - ${feedbackResult}`
-    );
-
     if (promptUserGuess === randomWord) {
       alert(
         `👏Congratulations👏 
@@ -197,12 +200,12 @@ const startGame = () => {
       );
       isGuessedCorrectly = true;
     } else if (leftAttempts === 0) {
-        alert(
-          `😭Game Over😭 
+      alert(
+        `😭Game Over😭 
           The correct word was "${randomWord}". 
           Better luck next time! 👴🏻`
-        );
-      }
+      );
     }
-  };
+  }
+};
 document.getElementById("startButton").addEventListener("click", startGame);
