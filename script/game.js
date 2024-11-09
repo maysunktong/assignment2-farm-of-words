@@ -84,7 +84,7 @@ const playGame = () => {
     let promptUserGuess = prompt(
       `Category: ${selectedCategory[0]}
     Guess the ${MAX_WORD_LENGTH}-letter word. [${leftAttempts} attempts left].
-    🐥🥦🥕🐮🥛🥩🌳
+    
     Attempt Summary:
     ${attemptSummary}
   `
