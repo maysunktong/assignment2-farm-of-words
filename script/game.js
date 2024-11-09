@@ -154,8 +154,8 @@ const startGame = () => {
     let attemptSummary = feedbackArray.join("\n");
     let promptUserGuess = prompt(
       `Category: ${selectedCategory[0]}
-      Guess the ${MAX_WORD_LENGTH}-letter word. You have ${leftAttempts} attempts left.
-      
+      Guess the ${MAX_WORD_LENGTH}-letter word. [${leftAttempts} attempts left].
+      🐥🥦🥕🐮🥛🥩🌳
       Attempt Summary:
       ${attemptSummary}
     `).toLowerCase();
@@ -166,7 +166,7 @@ const startGame = () => {
 
     if (promptUserGuess.trim() === "") {
       alert("No input. Try again!");
-      return startGame();
+      continue;
     }
 
     if (promptUserGuess.length != MAX_WORD_LENGTH) {
@@ -188,12 +188,14 @@ const startGame = () => {
 
     if (promptUserGuess === randomWord) {
       alert(
-        `Congratulations 👏 The correct word is ✨${randomWord}✨. You get the farm! 👴🏻🌳🎉`
+        `👏Congratulations👏 The correct word is ✨${randomWord}✨. 
+        You get the farm! 👴🏻🌳🎉`
       );
       isGuessedCorrectly = true;
     } else if (leftAttempts === 0) {
         alert(
-          `Game Over! The correct word was "${randomWord}". Better luck next time! 👴🏻`
+          `Game Over!❌ The correct word was "${randomWord}". 
+          Better luck next time! 👴🏻`
         );
       }
     }
