@@ -1,14 +1,14 @@
 const WORD_LIST_FRUITS = [
-  ["Fruits & Vegetables"],
+  ["Fruits & Vegetables 🥕🍌"],
   ["mango", "onion", "lemon", "olive", "apple", "peach"],
 ];
 const WORD_LIST_ANIMALS = [
-  ["Farm animals"],
+  ["Farm Animals 🐷🦆"],
   ["goose", "horse", "sheep", "snake", "mouse"],
 ];
 const WORD_LIST_PRODUCTS = [
-  ["Farm products"],
-  ["wheat", "honey", "bread", "juice", "steak"],
+  ["Farm Products 🚜🌾🥛"],
+  ["wheat", "honey", "bread", "juice", ""],
 ];
 const LETTER_REGEX = /^[a-z]+$/i;
 
@@ -97,9 +97,9 @@ const startGame = () => {
     `🚩:::Harvest Hints Arena:::🚩
 
     Please choose a category.
-    [1] Vegetables & Fruits 🥕🍌
-    [2] Animals 🐷🦆
-    [3] Farm products 🚜🌾🥛
+    [1] Fruits & Vegetables 🥕🍌
+    [2] Farm Animals 🐷🦆
+    [3] Farm Products 🚜🌾🥛
     `
   );
 
@@ -151,11 +151,14 @@ const startGame = () => {
   };
 
   while (leftAttempts > 0 && !isGuessedCorrectly) {
+    let attemptSummary = feedbackArray.join("\n");
     let promptUserGuess = prompt(
       `Category: ${selectedCategory[0]}
-      Guess the ${MAX_WORD_LENGTH}-letter word! 
-      You have ${leftAttempts} attempts left.`
-    ).toLowerCase();
+      Guess the ${MAX_WORD_LENGTH}-letter word. You have ${leftAttempts} attempts left.
+      
+      Attempt Summary:
+      ${attemptSummary}
+    `).toLowerCase();
     if (promptUserGuess === null) {
       alert("You cancelled the process. Exiting game...");
       return;
@@ -180,7 +183,7 @@ const startGame = () => {
 
     let feedbackResult = checkGuess(promptUserGuess);
     feedbackArray.push(
-      `Your guess is ${promptUserGuess.toUpperCase()} - ${feedbackResult}`
+      `Your guess: ${promptUserGuess.toUpperCase()} - ${feedbackResult}`
     );
 
     if (promptUserGuess === randomWord) {
@@ -188,16 +191,11 @@ const startGame = () => {
         `Congratulations 👏 The correct word is ✨${randomWord}✨. You get the farm! 👴🏻🌳🎉`
       );
       isGuessedCorrectly = true;
-    } else {
-      let attemptSummary = feedbackArray.join("\n");
-      alert(`Attempt Summary:\n${attemptSummary}`);
-      if (leftAttempts === 0) {
+    } else if (leftAttempts === 0) {
         alert(
           `Game Over! The correct word was "${randomWord}". Better luck next time! 👴🏻`
         );
       }
     }
-  }
-  //
-};
+  };
 document.getElementById("startButton").addEventListener("click", startGame);
