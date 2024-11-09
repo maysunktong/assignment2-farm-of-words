@@ -156,18 +156,27 @@ const startGame = () => {
       Guess the ${MAX_WORD_LENGTH}-letter word! 
       You have ${leftAttempts} attempts left.`
     ).toLowerCase();
-    if (promptUserGuess === null || promptUserGuess.trim() === "") {
+    if (promptUserGuess === null) {
       alert("You cancelled the process. Exiting game...");
       return;
     }
+
+    if (promptUserGuess.trim() === "") {
+      alert("No input. Try again!");
+      return startGame();
+    }
+
+    // Re-prompt promptUserGuess
     if (promptUserGuess.length != MAX_WORD_LENGTH) {
       alert(`Please enter a ${MAX_WORD_LENGTH}-letter word!`);
       return;
     }
+
     if (!LETTER_REGEX.test(promptUserGuess)) {
       alert("Your guess should include only letters!");
       return;
     }
+
     leftAttempts--;
 
     let feedbackResult = checkGuess(promptUserGuess);
