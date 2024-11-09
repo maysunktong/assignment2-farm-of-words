@@ -14,4 +14,10 @@ Harvest Hints is handled by two main functions: `startGame()` and `playGame()`
 - User will guess a word based on the category chosen
 - Each guess is evaluated. Left attempt decreases.
 - Evaluate a game: win or lose
-- On evaluation modal (`confirm()`), user can choose to replay or exit game.
+- On evaluation modal (`confirm("")`), user can choose to replay or exit game.
+
+
+## Things I have learnt from this project
+- `continue;` can be used only within loops. It is useful for staying on a remaining progress.
+- `CANCEL` and `OK` in `confirm("")` is easy to handle by using if-else, and no need to trim string since it does not require an input
+- To be able to restart a game, separate main gameplay out so it is easy to manage and call
