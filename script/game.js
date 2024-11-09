@@ -11,6 +11,8 @@ const WORD_LIST_PRODUCTS = [
   ["wheat", "honey", "bread", "juice", ""],
 ];
 const LETTER_REGEX = /^[a-z]+$/i;
+const MAX_WORD_LENGTH = 5;
+let leftAttempts = 6;
 
 const startGame = () => {
   // promptName starts
@@ -132,9 +134,8 @@ const startGame = () => {
   const randomWord =
     selectedCategory[1][Math.floor(Math.random() * selectedCategory[1].length)];
   let isGuessedCorrectly = false;
-  let leftAttempts = 5;
   let feedbackArray = [];
-  const MAX_WORD_LENGTH = 5;
+
 
   const checkGuess = (guess) => {
     let feedback = "";
