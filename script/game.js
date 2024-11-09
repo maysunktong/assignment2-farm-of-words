@@ -59,7 +59,7 @@ const playGame = () => {
 
   const randomWord =
     selectedCategory[1][Math.floor(Math.random() * selectedCategory[1].length)];
-  console.log("Random word: ", randomWord);
+  console.log("Key answer: ", randomWord);
 
   let isGuessedCorrectly = false;
   let feedbackArray = [];
