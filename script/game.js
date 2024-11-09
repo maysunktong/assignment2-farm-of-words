@@ -165,7 +165,7 @@ const startGame = () => {
     }
 
     if (promptUserGuess.trim() === "") {
-      alert("No input. Try again!");
+      alert("No input. Back to game.");
       continue;
     }
 
@@ -194,7 +194,7 @@ const startGame = () => {
       isGuessedCorrectly = true;
     } else if (leftAttempts === 0) {
         alert(
-          `Game Over!❌ The correct word was "${randomWord}". 
+          `😭Game Over😭 The correct word was "${randomWord}". 
           Better luck next time! 👴🏻`
         );
       }
