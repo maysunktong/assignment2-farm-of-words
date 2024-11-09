@@ -153,11 +153,7 @@ const startGame = () => {
     return feedback;
   };
 
-  let feedbackResult = checkGuess(promptUserGuess);
-  feedbackArray.push(
-    `Your guess: ${promptUserGuess.toUpperCase()} - ${feedbackResult}`
-  );
-
+ 
   while (leftAttempts > 0 && !isGuessedCorrectly) {
     let attemptSummary = feedbackArray.join("\n");
     // promptUserGuess starts
@@ -190,6 +186,11 @@ const startGame = () => {
     }
 
     leftAttempts--;
+
+    let feedbackResult = checkGuess(promptUserGuess);
+    feedbackArray.push(
+      `Your guess: ${promptUserGuess.toUpperCase()} - ${feedbackResult}`
+    );  
 
     if (promptUserGuess === randomWord) {
       alert(
