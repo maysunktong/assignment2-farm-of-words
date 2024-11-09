@@ -109,9 +109,9 @@ const playGame = () => {
 
     leftAttempts--;
 
-    let feedbackResult = checkGuess(promptUserGuess);
+    let feedbackColorBlocks = checkGuess(promptUserGuess);
     feedbackArray.push(
-      `Your guess: ${promptUserGuess.toUpperCase()} - ${feedbackResult}`
+      `Your guess: ${promptUserGuess.toUpperCase()} - ${feedbackColorBlocks}`
     );
 
     if (promptUserGuess === randomWord) {
