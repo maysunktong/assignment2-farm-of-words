@@ -1,7 +1,15 @@
-const MAX_WORD_LENGTH = 5;
-const WORD_LIST_FRUITS = ["mango", "onion", "lemon", "olive", "apple", "peach"];
-const WORD_LIST_ANIMALS = ["goose", "horse", "sheep", "snake", "mouse"];
-const WORD_LIST_PRODUCTS = ["wheat", "honey", "bread", "juice", "steak"];
+const WORD_LIST_FRUITS = [
+  ["Vegetables & fruits"],
+  ["mango", "onion", "lemon", "olive", "apple", "peach"],
+];
+const WORD_LIST_ANIMALS = [
+  ["Farm animals"],
+  ["goose", "horse", "sheep", "snake", "mouse"],
+];
+const WORD_LIST_PRODUCTS = [
+  ["Farm products"],
+  ["wheat", "honey", "bread", "juice", "steak"],
+];
 const LETTER_REGEX = /^[a-z]+$/i;
 
 const startGame = () => {
@@ -122,7 +130,7 @@ const startGame = () => {
   }
 
   const randomWord =
-    selectedCategory[Math.floor(Math.random() * selectedCategory.length)];
+    selectedCategory[1][Math.floor(Math.random() * selectedCategory.length)];
   let isGuessedCorrectly = false;
   let leftAttempts = 5;
   let feedbackArray = [];
@@ -143,7 +151,9 @@ const startGame = () => {
 
   while (leftAttempts > 0 && !isGuessedCorrectly) {
     let promptUserGuess = prompt(
-      `Guess the ${MAX_WORD_LENGTH}-letter word! You have ${leftAttempts} attempts left.`
+      `Category: ${selectedCategory[0]}
+      Guess the ${MAX_WORD_LENGTH}-letter word! 
+      You have ${leftAttempts} attempts left.`
     ).toLowerCase();
     if (promptUserGuess === null || promptUserGuess.trim() === "") {
       alert("You cancelled the process. Exiting game...");
@@ -166,15 +176,15 @@ const startGame = () => {
 
     if (promptUserGuess === randomWord) {
       alert(
-        `Congratulations 👏 The correct word is ✨${randomWord}✨. You get the farm! 🌳🥳`
+        `Congratulations 👏 The correct word is ✨${randomWord}✨. You get the farm! 👴🏻🌳🎉`
       );
       isGuessedCorrectly = true;
     } else {
       let attemptSummary = feedbackArray.join("");
-      alert(`Attempt Summary:\n\n${attemptSummary}`);
+      alert(`Attempt Summary:${attemptSummary}`);
       if ((leftAttempts = 0)) {
         alert(
-          `Game Over! The correct word was ${randomWord}. Better luck next time!`
+          `Game Over! The correct word was "${randomWord}". Better luck next time! 👴🏻`
         );
       }
     }
