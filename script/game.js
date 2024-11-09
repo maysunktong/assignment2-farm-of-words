@@ -189,13 +189,16 @@ const startGame = () => {
 
     if (promptUserGuess === randomWord) {
       alert(
-        `👏Congratulations👏 The correct word is ✨${randomWord}✨. 
-        You get the farm! 👴🏻🌳🎉`
+        `👏Congratulations👏 
+        The correct word is ✨${randomWord}✨. 
+        You get the farm! 👴🏻🌳
+        🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉`
       );
       isGuessedCorrectly = true;
     } else if (leftAttempts === 0) {
         alert(
-          `😭Game Over😭 The correct word was "${randomWord}". 
+          `😭Game Over😭 
+          The correct word was "${randomWord}". 
           Better luck next time! 👴🏻`
         );
       }
