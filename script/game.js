@@ -8,7 +8,7 @@ const WORD_LIST_ANIMALS = [
 ];
 const WORD_LIST_PRODUCTS = [
   ["Farm Products 🚜🌾🥛"],
-  ["wheat", "honey", "bread", "juice", ""],
+  ["wheat", "honey", "bread", "juice", "flour"],
 ];
 const LETTER_REGEXP = /^[a-z]+$/i;
 const MAX_WORD_LENGTH = 5;
