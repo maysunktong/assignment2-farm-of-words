@@ -9,12 +9,12 @@ const startGame = () => {
   let promptName = prompt(
     `🧙🏻‍♂️[Mayor]: Hi. My name is Thomas Morot, Mayor of Grönville. What is your name?`
   );
-  if (!LETTER_REGEX.test(promptName)) {
-    alert("Your name should only contain letters. Please try again.");
-    return;
-  }
   if (promptName === null || promptName.trim() === "") {
     alert("You cancelled the process. Exiting game.");
+    return;
+  }
+  if (!LETTER_REGEX.test(promptName)) {
+    alert("Your name should only contain letters. Please try again.");
     return;
   }
   let promptMayor = prompt(`
@@ -53,7 +53,7 @@ const startGame = () => {
     -----------------------------------------------------
    [0] Start game
    [1] Change your name`);
-   
+
   if (promptLetter === null || promptLetter.trim() === "") {
     alert("You cancelled the process. Exiting game.");
     return;
