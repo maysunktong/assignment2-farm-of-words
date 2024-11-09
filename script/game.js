@@ -10,7 +10,7 @@ const WORD_LIST_PRODUCTS = [
   ["Farm Products 🚜🌾🥛"],
   ["wheat", "honey", "bread", "juice", ""],
 ];
-const LETTER_REGEX = /^[a-z]+$/i;
+const LETTER_REGEXP = /^[a-z]+$/i;
 const MAX_WORD_LENGTH = 5;
 let maxAttempts = 6;
 
@@ -104,7 +104,7 @@ const playGame = () => {
       continue;
     }
 
-    if (!LETTER_REGEX.test(promptUserGuess)) {
+    if (!LETTER_REGEXP.test(promptUserGuess)) {
       alert("Your guess should only include letters!");
       continue;
     }
@@ -164,7 +164,7 @@ const startGame = () => {
     return startGame();
   }
 
-  if (!LETTER_REGEX.test(promptName)) {
+  if (!LETTER_REGEXP.test(promptName)) {
     alert("Your name should only contain letters. Please try again.");
     return startGame();
   }
