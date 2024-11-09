@@ -17,6 +17,7 @@ const startGame = () => {
 
   if (!LETTER_REGEX.test(promptName)) {
     alert("Your name should only contain letters. Please try again.");
+    startGame();
     return;
   }
 
@@ -34,7 +35,7 @@ const startGame = () => {
   }
 
   if (promptMayor === "1") {
-    startGame(); // Restart to change the name
+    startGame();
     return;
   } else if (promptMayor !== "0") {
     alert("Invalid choice. Please try again.");
@@ -65,11 +66,11 @@ const startGame = () => {
   }
 
   if (promptLetter === "1") {
-    startGame(); // Restart to change the name
+    startGame();
     return;
   } else if (promptLetter !== "0") {
     alert("Invalid choice. Please try again.");
-    startGame();
+    promptCategory();
     return;
   }
 
