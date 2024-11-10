@@ -65,17 +65,31 @@ const playGame = () => {
   let feedbackArray = [];
 
   const checkGuess = (guess) => {
-    let feedback = "";
+    // fill every letter in array as ⬛️, false and wrong spot
+    let feedback = Array(MAX_WORD_LENGTH).fill("⬛️");
+    // fill whole array unused letter
+    let usedLetters = Array(MAX_WORD_LENGTH).fill(false);
+    // then check if its correct and right position, then green
     for (let i = 0; i < MAX_WORD_LENGTH; i++) {
       if (guess[i] === randomWord[i]) {
-        feedback += "✅";
-      } else if (randomWord[i].includes(guess[i])) {
-        feedback += "🐥";
-      } else {
-        feedback += "⬛️";
+        feedback[i] = "✅";
+        usedLetters[i] = true;
       }
     }
-    return feedback;
+    // ⬛️ will stay if false and wrong spot
+    // loop to check ⬛️ if correct letter but wrong spot
+    for (let i = 0; i < MAX_WORD_LENGTH; i++) {
+      if (feedback[i] === "⬛️") {
+        for (let j = 0; j < MAX_WORD_LENGTH; j++) {
+          if (!usedLetters[j] && guess[i] === randomWord[j]) {
+            feedback[i] = "🐥";
+            usedLetters[j] = true;
+            break;
+          }
+        }
+      }
+    }
+    return feedback.join("");
   };
 
   while (leftAttempts > 0 && !isGuessedCorrectly) {
