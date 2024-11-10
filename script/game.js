@@ -239,7 +239,7 @@ const startGame = () => {
     return startGame();
   } else if (promptLetter !== "0") {
     alert("Invalid choice. Please try again.");
-    return;
+    return startGame();
   }
   playGame();
 };
