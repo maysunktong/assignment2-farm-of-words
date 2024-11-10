@@ -10,7 +10,7 @@ const WORD_LIST_PRODUCTS = [
   ["Farm Products 🚜🌾🥛"],
   ["wheat", "honey", "bread", "juice", "flour"],
 ];
-const LETTER_REGEXP = /^[a-z]+$/i;
+const LETTER_REGEXP = /^[a-zæøåäöÆØÅÄÖ]+$/i;
 const MAX_WORD_LENGTH = 5;
 let maxAttempts = 6;
 
