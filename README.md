@@ -24,7 +24,8 @@
 - `CANCEL` and `OK` in `confirm("")` is easy to handle by using booleans in an if-else statement, and no need to trim string since it does not require an input
 - To be able to restart a game, separate main gameplay out so it is easy to manage and call
 - Writing a simple RegExp to evaluate if the input is letter-based.
-- function `checkGuess()` for checking a right letter but wrong spot turned out to be more challenging than I thought. It did not work simply by using `.includes("")`
+- function `checkGuess()` for checking a right letter but wrong spot turned out to be more challenging than I thought. It did not work simply by using `.includes("")`. 
+- The function works by labelling all letters in array as false and unused. Then, proceed to check right letter ✅ in the first loop. The last loop checks for the right letter but in wrong position 🐥. It does not check on wrong letter in wrong position since we filled them at the start of function.
 
 **Solution** 
 ```javascript
