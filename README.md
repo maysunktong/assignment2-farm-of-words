@@ -20,7 +20,7 @@
 
 ## Things I have learnt from this project
 - `continue;` can be used only within loops. It is useful for staying on a remaining progress.
-- `CANCEL` and `OK` in `confirm("")` in `prompt("")` is handled by `prompt === null` and `promptCategory.trim() === ""` respectively
+- `CANCEL` and `OK` in `prompt("")` is handled by `prompt === null` and `promptCategory.trim() === ""` respectively
 - `CANCEL` and `OK` in `confirm("")` is easy to handle by using booleans in an if-else statement, and no need to trim string since it does not require an input
 - To be able to restart a game, separate main gameplay out so it is easy to manage and call
 - Writing a simple RegExp to evaluate if the input is letter-based.
