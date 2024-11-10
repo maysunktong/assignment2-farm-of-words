@@ -132,7 +132,7 @@ const playGame = () => {
     if (promptUserGuess === randomWord) {
       let win = confirm(
         `👏Congratulations👏 
-      The correct word is ✨${randomWord}✨. 
+      The correct word is ✨${randomWord.toUpperCase()}✨. 
       You get the farm! 👴🏻🌳
       🥳🥳🥳🥳🥳
       
@@ -147,7 +147,7 @@ const playGame = () => {
     } else if (leftAttempts === 0) {
       let lose = confirm(
         `😭Game Over😭 
-        The correct word was "${randomWord}". 
+        The correct word was "${randomWord.toUpperCase()}". 
         Better luck next time! 👴🏻
         
         Do you want to play again?`
