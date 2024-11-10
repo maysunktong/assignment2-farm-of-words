@@ -65,7 +65,7 @@ const playGame = () => {
   let feedbackArray = [];
 
   const checkGuess = (guess) => {
-    // fill every letter in array as ⬛️, false and wrong spot
+    // fill every letter in array as ⬛️, as default
     let feedback = Array(MAX_WORD_LENGTH).fill("⬛️");
     // fill whole array unused letter
     let usedLetters = Array(MAX_WORD_LENGTH).fill(false);
@@ -76,7 +76,6 @@ const playGame = () => {
         usedLetters[i] = true;
       }
     }
-    // ⬛️ will stay if false and wrong spot
     // loop to check ⬛️ if correct letter but wrong spot
     for (let i = 0; i < MAX_WORD_LENGTH; i++) {
       if (feedback[i] === "⬛️") {
