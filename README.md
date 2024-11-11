@@ -1,6 +1,8 @@
 > [!TIP]
 > Turn on **'Inspect'** to see `Key answer`
 
+Harvest Hints is a Wordle-inspired game where player selects a farm-related category and try to guess the correct word.
+
 ![CleanShot 2567-11-07 at 22 23 01@2x](https://github.com/user-attachments/assets/ccff3814-92d6-4e68-b62e-ae0c255d9814)
 Harvest Hints is a Wordle-inspired game where player selects a farm-related category and try to guess the correct word.
 
